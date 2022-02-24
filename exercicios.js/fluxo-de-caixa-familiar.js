@@ -1,32 +1,42 @@
-/* ### transformar notas escolares
+/* ### Sistema de gastos familiar
 
-crie um algoritmo que transforme as notas do sistema numérico para sistema
-de notas em caracteres tipo A B C;
+crie um objetvo que possuirá 2 propriedades, ambas do tipo array:
+* receitas: []
+* despesas: []
 
-*de 90 para cima - A
-*entre 80 - 89   - B
-*entre 70 - 79   - C
-*entre 60 - 69   - D
-*menor que 60    - F
+Agora, crie uma funcao que irá calcular o total de receitas
+e despesas e irá mostrar uma mensagem se a familia esta
+com saldo positivo ou negativo, seguido do valor do saldo.
 
 */
 
-let nota = 0;
+const systemReceit = {
+    receitas: [200,300,400,500,100,200],
+    gastos: [500,100,400,900,200,300]
+};
 
-function getScore(nota){
-    let notaFinal;
-    
-    if (nota >= 90){
-       notaFinal = console.log("nota A");
-    } else if (nota >= 80 && nota <= 89){
-        notaFinal = console.log("nota B");
-    } else if (nota >= 70 && nota <=79){
-        notaFinal = console.log("nota C");    
-    } else if (nota >= 60 && nota <=69){
-        notaFinal = console.log("nota D");
-    } else if (nota < 60){
-        notaFinal = console.log("nota F");
-    };
 
-    return notaFinal;
+function somaValores(array) {
+    let total = 0;
+    for(let values of array){
+        total += values;    
+    }
+    return total;
+}
+
+
+function calcReceit (){
+    let calculoReceitas = somaValores(systemReceit.receitas);
+    let calculoGastos = somaValores(systemReceit.gastos);
+    let calculoTotal = (calculoReceitas - calculoGastos);
+    if (calculoTotal > 0){
+        console.log(`você está positivo com ${calculoTotal}`);
+    } else if (calculoTotal < 0 ){
+        console.log(`você está negativo com ${calculoTotal}`);
+    } else if (calculoTotal = 0) {
+        console.log(`você está com saldo zerado`);
+    } else {
+        console.log("calculo nao efetuado.");
+    }
+    return console.log("calculo finalizado");
 };

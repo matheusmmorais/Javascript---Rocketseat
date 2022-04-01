@@ -39,3 +39,4 @@ function CreateThink(Subject){
 console.log(CreateThink(Subject));
 console.log(Subject);
 
+
